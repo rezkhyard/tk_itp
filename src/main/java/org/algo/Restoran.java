@@ -33,20 +33,17 @@ public class Restoran {
 
         System.out.println("Pesanan anda (batas pesanan 0-10)");
 
-        System.out.println("1. "+ menu[0]);
-        pesanan.add(sc.nextInt());
+        for (int i = 0; i < menu.length; i++) {
+            System.out.println(i+1 + ". "+ menu[i]);
+            int currPesanan = sc.nextInt();
 
-        System.out.println("2. "+ menu[1]);
-        pesanan.add(sc.nextInt());
-
-        System.out.println("3. "+ menu[2]);
-        pesanan.add(sc.nextInt());
-
-        System.out.println("4. "+ menu[3]);
-        pesanan.add(sc.nextInt());
-
-        System.out.println("5. "+ menu[4]);
-        pesanan.add(sc.nextInt());
+            if(currPesanan >= 0 && currPesanan <= 10) {
+                pesanan.add(currPesanan);
+            } else {
+                System.out.println("Batas pesanan 0-10!");
+                i--;
+            }
+        }
 
         System.out.println("Selamat menikmati pesanan anda...");
         sc.nextLine();
