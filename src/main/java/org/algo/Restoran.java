@@ -49,17 +49,22 @@ public class Restoran {
         sc.nextLine();
         System.out.println();
 
-        Double[] total = {pesanan.get(0) * harga[0], pesanan.get(1) * harga[1], pesanan.get(2) * harga[2], pesanan.get(3) * harga[3], pesanan.get(4) * harga[4]};
-        double grandTotal = total[0] + total[1] + total[2] + total[3] + total[4];
-        double discount = 0.10 * grandTotal;
-        double netTotal = grandTotal - discount;
-        double perOrang = netTotal / jmlPemesan;
+        ArrayList<Double> total = new ArrayList<>();
+        double grandTotal = 0;
 
         System.out.println("Pembelian:");
 
         for (int i = 0; i < menu.length; i++) {
-            System.out.println(i+1 + ". "+ menu[i] +"   " + pesanan.get(i) + " porsi * Rp " + harga[i] + "  = Rp " + total[i]);
+            double currTotal = pesanan.get(i) * harga[i];
+            total.add(currTotal);
+            grandTotal += currTotal;
+
+            System.out.println(i+1 + ". "+ menu[i] +"   " + pesanan.get(i) + " porsi * Rp " + harga[i] + "  = Rp " + total.get(i));
         }
+
+        double discount = 0.10 * grandTotal;
+        double netTotal = grandTotal - discount;
+        double perOrang = netTotal / jmlPemesan;
 
         System.out.println("=========================================================================");
         System.out.println("Total pembelian                                         = Rp " + grandTotal);
