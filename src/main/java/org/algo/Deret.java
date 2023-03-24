@@ -55,7 +55,7 @@ public class Deret {
 
             sc.nextLine();
 
-            System.out.println("Anda ingin mengulang? [y/t]]: ");
+            System.out.println("Apakah anda ingin mengulang? [y/t]]: ");
             String yt = sc.nextLine();
 
             if (yt.equalsIgnoreCase("y")) {
